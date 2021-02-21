@@ -1,4 +1,4 @@
-const IO = require('socket.io')
+const { Server } = require('socket.io')
 const _ = require('lodash')
 const { match } = require('moleculer').Utils
 const { ServiceNotFoundError } = require("moleculer").Errors;
@@ -230,7 +230,7 @@ module.exports = {
 					}
         }).bind(this)
       }
-      this.io = new IO(srv, opts)
+      this.io = new Server(srv, opts)
     },
     socketGetMeta(socket){
       let meta = {
